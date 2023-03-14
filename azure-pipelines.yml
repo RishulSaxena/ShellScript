@@ -14,6 +14,7 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
+
     npm install -g anypoint-cli-v4
     anypoint-cli-v4 plugins:install anypoint-cli-account-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-api-mgr-plugin
@@ -23,6 +24,11 @@ steps:
     anypoint-cli-v4 plugins:install anypoint-cli-governance-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-runtime-mgr-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-datagraph-plugin
+    
+    anypoint-cli-v4 conf client_id ccd76dac1671416fb45a4fba58b326e4
+    anypoint-cli-v4 conf client_secret a4de235308a6473A9d2B9CE962EDD1C1
+    anypoint-cli-v4 conf organization 50be90e9-e0a8-47df-9185-691a2a143f2c
+    anypoint-cli-v4 account:environment:list --client_id ccd76dac1671416fb45a4fba58b326e4 a4de235308a6473A9d2B9CE962EDD1C1 --organization 50be90e9-e0a8-47df-9185-691a2a143f2c
     
     anypoint-cli-v4 cloudhub:load-balancer:list 
     anypoint-cli-v4 cloudhub:region:list
