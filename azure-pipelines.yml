@@ -2,10 +2,6 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-variables:
-  ANYPOINT_CLIENT_ID: ccd76dac1671416fb45a4fba58b326e4
-  ANYPOINT_CLIENT_SECRET: a4de235308a6473A9d2B9CE962EDD1C1
-  ANYPOINT_ORG: 50be90e9-e0a8-47df-9185-691a2a143f2c
   
 trigger:
 - main
@@ -25,9 +21,10 @@ steps:
     anypoint-cli-v4 plugins:install anypoint-cli-cloudhub-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-runtime-mgr-plugin
  
-    anypoint-cli-v4 conf client_id $(ANYPOINT_CLIENT_ID)
-    anypoint-cli-v4 conf client_secret $(ANYPOINT_CLIENT_SECRET)
-    anypoint-cli-v4 conf organization $(ANYPOINT_ORG)
+    export ANYPOINT_CLIENT_ID="ccd76dac1671416fb45a4fba58b326e4"
+    export ANYPOINT_CLIENT_SECRET="a4de235308a6473A9d2B9CE962EDD1C1"
+    export ANYPOINT_ORG="50be90e9-e0a8-47df-9185-691a2a143f2c"
+    anypoint-cli-v4 account:environment:list
     
     anypoint-cli-v4 cloudhub:load-balancer:list 
     anypoint-cli-v4 cloudhub:region:list
