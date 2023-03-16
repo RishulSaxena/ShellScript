@@ -25,10 +25,9 @@ steps:
     anypoint-cli-v4 plugins:install anypoint-cli-cloudhub-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-runtime-mgr-plugin
  
-    
-    export ANYPOINT_CLIENT_ID=$(ANYPOINT_CLIENT_ID)
-    export ANYPOINT_CLIENT_SECRET=$(ANYPOINT_CLIENT_SECRET)
-    export ANYPOINT_ORG=$(ANYPOINT_ORG)
+    anypoint-cli-v4 conf client_id $(ANYPOINT_CLIENT_ID)
+    anypoint-cli-v4 conf client_secret $(ANYPOINT_CLIENT_SECRET)
+    anypoint-cli-v4 conf organization $(ANYPOINT_ORG)
     
     anypoint-cli-v4 cloudhub:load-balancer:list 
     anypoint-cli-v4 cloudhub:region:list
