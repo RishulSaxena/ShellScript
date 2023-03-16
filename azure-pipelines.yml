@@ -2,7 +2,11 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-
+variables:
+  ANYPOINT_CLIENT_ID: ccd76dac1671416fb45a4fba58b326e4
+  ANYPOINT_CLIENT_SECRET: a4de235308a6473A9d2B9CE962EDD1C1
+  ANYPOINT_ORG: 50be90e9-e0a8-47df-9185-691a2a143f2c
+  
 trigger:
 - main
 
@@ -14,7 +18,7 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-
+    
     npm install -g anypoint-cli-v4
     anypoint-cli-v4 plugins:install anypoint-cli-account-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-api-mgr-plugin
@@ -25,7 +29,9 @@ steps:
     anypoint-cli-v4 plugins:install anypoint-cli-runtime-mgr-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-datagraph-plugin
     
- 
+    export ANYPOINT_CLIENT_ID=$ANYPOINT_CLIENT_ID
+    export ANYPOINT_CLIENT_SECRET=$ANYPOINT_CLIENT_SECRET
+    export ANYPOINT_ORG=$ANYPOINT_ORG
     
     anypoint-cli-v4 cloudhub:load-balancer:list 
     anypoint-cli-v4 cloudhub:region:list
