@@ -23,11 +23,8 @@ steps:
     anypoint-cli-v4 plugins:install anypoint-cli-account-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-api-mgr-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-cloudhub-plugin
-    nypoint-cli-v4 plugins:install anypoint-cli-designcenter-plugin
-    anypoint-cli-v4 plugins:install anypoint-cli-exchange-plugin
-    anypoint-cli-v4 plugins:install anypoint-cli-governance-plugin
     anypoint-cli-v4 plugins:install anypoint-cli-runtime-mgr-plugin
-    anypoint-cli-v4 plugins:install anypoint-cli-datagraph-plugin
+ 
     
     export ANYPOINT_CLIENT_ID=$(ANYPOINT_CLIENT_ID)
     export ANYPOINT_CLIENT_SECRET=$(ANYPOINT_CLIENT_SECRET)
